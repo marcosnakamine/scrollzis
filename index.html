@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Scrollzis</title>
+
+	<style>
+		html, body {margin:0; padding:0; }
+		img {max-width:100%; }
+		header h1 {font-family:sans-serif; text-align:center; }
+		header,
+		.container {width:100%; max-width:500px; margin:auto; }
+		.container {margin-bottom:500px; display:flex; flex-wrap:wrap; }
+		.container figure {width:calc( 20% - 10px ); margin:5px; }
+	</style>
+
+	<script src="jquery-3.3.1.min.js"></script>
+
+	<script>
+		$( function () {
+			var sh, sy, ey, timeIni, timeEnd, timeAll, progress, xx, yy, xIni, yIni;
+
+			xIni = new Array();
+			yIni = new Array();
+
+			function scrolling() {
+				sh = $( window ).height();
+				sy = $( document ).scrollTop();
+				timeIni = 0;
+				timeEnd = sh / 2;
+				timeAll = timeEnd - timeIni;
+
+				$( '.scrollzis' ).each( function ( index ) {
+					ey = $( this ).offset().top;
+					time = sy - ( ey - sh );
+					progress = time / timeAll;
+					xx = ( xIni[index] - (xIni[index] * progress) );
+					yy = ( yIni[index] - (yIni[index] * progress) );
+					if ( time > timeIni && time < timeEnd ) {
+						$( 'img', this ).css( {
+							'transform': 'translate('+ xx +'px,'+ yy +'px)'
+						} );
+						$( this ).css( {
+							'opacity': progress
+						} );
+					} else if( time > timeIni ) {
+						$( 'img', this ).css( {
+							'transform': 'translate('+ 0 +'px,'+ 0 +'px)'
+						} );
+						$( this ).css( {
+							'opacity': 1
+						} );
+					}
+				} );
+			}
+
+			function randomizeInitialPosition() {
+				$( '.scrollzis' ).each( function ( index ) {
+					xIni.push( 500*Math.random() - 250 );
+					yIni.push( 500*Math.random() );
+					$( 'img', this ).css( {
+						'transform': 'translate('+ xIni[index] +'px,'+ yIni[index] +'px)'
+					} );
+					$( this ).css( {
+						'opacity': 0
+					} );
+				} );
+			}
+
+			( function () {
+				randomizeInitialPosition();
+				scrolling();
+				$( document ).on( 'scroll', scrolling );
+			} )();
+		} );
+	</script>
+
+</head>
+<body>
+
+	<header>
+		<h1>Scrollzis</h1>
+		<img src="mussum-vector.svg" alt="">
+	</header>
+	<section class="container">
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+		<figure class="scrollzis"><img src="mussum-vector.svg" alt=""></figure>
+	</section>
+
+</body>
+</html>
